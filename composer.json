@@ -1,0 +1,33 @@
+{
+    "name": "fred/laravel-slack",
+    "description": "slack service and message composer",
+    "type": "library",
+    "authors": [
+        {
+            "name": "fred07",
+            "email": "fivesec10@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fred\\SlackService\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fred\\SlackService\\SlackServiceProvider"
+            ]
+        }
+    },
+    "license": "MIT"
+}
