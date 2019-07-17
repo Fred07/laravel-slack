@@ -33,20 +33,33 @@ class Client
 
     /**
      * Client constructor.
+     * @param Guzzle|null $client
      * @param string $endpoint
      * @param string|null $channel
      * @param string $username
      */
-    public function __construct(string $endpoint, string $channel = null, $username = '')
+    public function __construct(string $endpoint, string $channel = null, $username = '', Guzzle $client = null)
     {
-        $this->http = new Guzzle([
-            'headers' => [
-                'Content-type: application/json'
-            ],
-        ]);
+        if ($client === null) {
+            $this->http = $this->makeHttpClient();
+        } else {
+            $this->http = $client;
+        }
+
         $this->channel = $channel;
         $this->username = $username;
         $this->endpoint = $endpoint;
+    }
+
+    /**
+     * @param array $headers
+     * @return Guzzle
+     */
+    private function makeHttpClient(array $headers = []): Guzzle
+    {
+        return new Guzzle([
+            'headers' => !empty($headers) ? $headers : ['Content-type: application/json'],
+        ]);
     }
 
     /**

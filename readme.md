@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Fred07/laravel-slack.svg?branch=master)](https://travis-ci.com/Fred07/laravel-slack)
+
 # slack service provider
 
 本專案以 service provider 方式

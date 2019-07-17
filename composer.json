@@ -10,12 +10,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "guzzlehttp/guzzle": "^6.3",
         "ext-json": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.8"
+        "orchestra/testbench": "^3.8",
+        "phpunit/phpunit": "^8.2"
     },
     "autoload": {
         "psr-4": {
