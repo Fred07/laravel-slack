@@ -1,6 +1,6 @@
 {
     "name": "fred/laravel-slack",
-    "description": "slack service and message composer",
+    "description": "slack service provider and message composer",
     "type": "library",
     "authors": [
         {

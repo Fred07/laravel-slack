@@ -10,6 +10,12 @@
 
 ## 安裝
 
+執行 composer 安裝，在根目錄下指令
+
+```
+composer require fred/laravel-slack
+```
+
 `laravel/lumen` 專案下設定 `SlackServiceProvider`
 
 [lumen] - 在 `/bootstrap/app.php` 加入
@@ -34,12 +40,14 @@ $app->register(Fred\SlackService\SlackServiceProvider::class);
 [laravel] - 在專案目錄下透過 artisan 指令
 
 ```sh
-$ php artisan vendor:push --provider="Fred\SlackService\SlackServiceProvider" --tag="config"
+$ php artisan vendor:publish --provider="Fred\SlackService\SlackServiceProvider" --tag="config"
 ```
 
 [lumen] - 在 `/config` 資料夾下放入 `slack.php`
 
-`/config/slack.php` 的設定:
+--- 
+
+到 `/config/slack.php` 設定內容:
 
 ```php
 return [
@@ -64,7 +72,7 @@ return [
 
 以下依據上述的註冊範例延伸
 
-基本傳訊息:
+基本傳遞訊息:
 
 ```php
 $slack = app('slack-error-report');
@@ -85,7 +93,7 @@ $slack->compose(function (Message $message) {
     // 套用模板所需的參數和值，預設使用 Exception template
     $data = [
         'exceptionContent' => 'Invalid user id',
-        'requestContent' => 'https://xxbox.com.tw',
+        'requestContent' => 'https://oobox.com.tw',
         'envContent' => 'testing',
         'timeContent' => Carbon\Carbon::now()->toDateTimeString(),
         'traceContent' => "error trace code",
