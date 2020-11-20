@@ -6,13 +6,16 @@ use Illuminate\Support\ServiceProvider;
 
 class SlackServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->registerClients();
+    }
+
     public function boot(): void
     {
         $this->publishes([
             __DIR__ . '/../config/slack.php' => config_path('slack.php'),
         ], 'config');
-
-        $this->registerClients();
     }
 
     protected function registerClients(): void
